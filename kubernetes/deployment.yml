@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: onlineshop-deployment
+  namespace: onlineshop  
+  labels:
+    app: onlineshop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: onlineshop
+  template:
+    metadata:
+      labels:
+        app: onlineshop
+    spec:
+      containers:
+      - name: onlineshop-cont
+        image: sahastra16/onlineshop:latest
+        ports:
+        - containerPort: 5173
+
